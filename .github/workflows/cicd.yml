@@ -70,7 +70,7 @@ jobs:
         run: |
           mkdir -p ~/.dbt
           cat << EOF > ~/.dbt/profiles.yml
-          test_db:
+          test_db:  # This matches the profile name in dbt_project.yml
           outputs:
               dev:
               type: postgres
@@ -96,12 +96,13 @@ jobs:
         working-directory: ./src/dbt_project
         run: |
           if [ -f "dbt_project.yml" ]; then
-            dbt deps
-            dbt seed --full-refresh
-            dbt run --full-refresh
-            dbt test
+          dbt deps
+          dbt debug  # Add this debug step
+          dbt seed --full-refresh
+          dbt run --full-refresh
+          dbt test
           else
-            echo "No dbt project found. Skipping dbt tests."
+          echo "No dbt project found. Skipping dbt tests."
           fi
 
       - name: Run API tests
