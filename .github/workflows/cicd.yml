@@ -71,16 +71,16 @@ jobs:
           mkdir -p ~/.dbt
           cat << EOF > ~/.dbt/profiles.yml
           test_db:
-            outputs:
+          outputs:
               dev:
-                type: postgres
-                host: localhost
-                port: 5432
-                user: test_user
-                password: test_pass
-                dbname: test_db
-                schema: public
-            target: dev
+              type: postgres
+              host: localhost
+              port: 5432
+              user: test_user
+              password: test_pass
+              dbname: test_db
+              schema: public
+          target: dev
           EOF
 
       - name: Run flake8 linting
