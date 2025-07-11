@@ -60,8 +60,12 @@ Shipping-a-Data-Product-From-Raw-Telegram-Data-to-an-Analytical-insights/
 git clone https://github.com/yourusername/shipping-data-product.git
 cd shipping-data-product
 
+```
+
 # Setup environment
 cp .env.example .env
+
+```
 
 # Start infrastructure
 docker-compose -f docker/docker-compose.yml up --build -d
@@ -119,4 +123,3 @@ This project is licensed under the MIT License.
 - [FastAPI](https://fastapi.tiangolo.com/)
 - [Telethon](https://docs.telethon.dev/en/stable/)
 
-# Shipping-a-Data-Product-From-Raw-Telegram-Data-to-an-Analytical-insights
