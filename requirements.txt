@@ -1,0 +1,45 @@
+# Python dependencies
+# Core
+python-dotenv==1.0.0
+python-dateutil==2.8.2
+loguru==0.7.0
+typer==0.12.3  # Compatible with FastAPI CLI
+
+# Data processing
+pandas==2.2.2
+numpy==1.24.3
+pyarrow==12.0.1
+
+# Telegram scraping
+telethon==1.34.0
+aiohttp==3.8.4
+aiofiles==23.1.0
+
+# Database & transformation
+dbt-core==1.8.0
+dbt-postgres==1.8.0
+psycopg2-binary==2.9.9
+sqlalchemy==2.0.30
+
+# Image processing & enrichment
+ultralytics==8.2.26
+opencv-python-headless==4.9.0.80
+Pillow==9.5.0
+
+# API development
+fastapi==0.111.0
+uvicorn[standard]==0.29.0
+pydantic==2.7.1
+python-multipart==0.0.7  # Required by FastAPI
+
+# Orchestration (compatible versions)
+dagster==1.6.3
+dagster-postgres==0.22.3
+dagster-webserver==1.6.3
+dagster-dbt==0.22.3
+
+# Testing & development
+pytest==8.1.1
+responses==0.23.1
+pre-commit==3.3.2
+requests==2.32.0
