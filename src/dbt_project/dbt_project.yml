@@ -1,9 +1,8 @@
-name: my_dbt_project
+name: telegram_analytics
 version: "1.0"
-
 config-version: 2
 
-profile: my_dbt_profile
+profile: test_db
 
 model-paths: ["models"]
 seed-paths: ["seeds"]
@@ -13,5 +12,5 @@ target-path: "target"
 clean-targets: ["target", "dbt_modules"]
 
 models:
-  my_dbt_project:
+  telegram_analytics:
     +materialized: view
