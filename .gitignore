@@ -1,3 +1,78 @@
-*.pyc
+
+# Byte-compiled / optimized / DLL files
 __pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+env/
+venv/
+
+# Environment variables
 .env
+.env.*
+
+# Logs and outputs
+*.log
+logs/
+*.out
+
+# Data files
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# macOS files
+.DS_Store
+
+# Docker
+*.pid
+*.tar
+docker-compose.override.yml
+
+# dbt
+dbt_packages/
+target/
+dbt_modules/
+
+# FastAPI cache
+__pydantic__/
+*.sqlite
+
+# Coverage reports
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+.cache
+nosetests.xml
+*.cover
+.hypothesis/
+
+# Test outputs
+.pytest_cache/
+junit-*.xml
+
+# Mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Dagster local state
+dagster_instance/
+
+# Misc
+*.swp
+*.swo
+*.bak
