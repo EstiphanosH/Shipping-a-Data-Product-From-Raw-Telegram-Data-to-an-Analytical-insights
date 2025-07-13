@@ -1,20 +1,10 @@
-# Base image with Telethon dependencies
-FROM python:3.11-slim
+FROM python:3.10-slim
 
-# Install system dependencies for image processing
-RUN apt-get update && \
-    apt-get install -y libgl1 libglib2.0-0 && \
-    rm -rf /var/lib/apt/lists/*
-
-# Set working directory
 WORKDIR /app
 
-# Copy requirements first for caching
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy scraper source code
-COPY src/scraper /app/src/scraper
+COPY . .
 
-# Entrypoint for scraping
-ENTRYPOINT ["python", "-m", "src.scraper.telegram_scraper"]
+CMD ["python", "-m", "src.scraper.scheduler"]
