@@ -1,10 +1,15 @@
-import os
-import logging
+import asyncio
+import argparse
+from .telegram_scraper import TelegramScraper
 
-def ensure_directory_exists(path):
-    try:
-        os.makedirs(path, exist_ok=True)
-        return True
-    except Exception as e:
-        logging.error(f"Error creating directory {path}: {str(e)}")
-        return False
+def main():
+    parser = argparse.ArgumentParser(description='Ethiopian Medical Telegram Scraper')
+    parser.add_argument('--days-back', type=int, default=1, 
+                        help='Days back to scrape (default: yesterday)')
+    args = parser.parse_args()
+
+    scraper = TelegramScraper()
+    asyncio.run(scraper.run(args.days_back))
+
+if __name__ == "__main__":
+    main()
