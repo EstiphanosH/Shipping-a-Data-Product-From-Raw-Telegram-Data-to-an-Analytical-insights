@@ -1,0 +1,48 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: telegram_messages
+        description: "Raw Telegram messages from Ethiopian medical channels"
+        columns:
+          - name: message_id
+            tests:
+              - not_null
+              - unique
+          - name: message_date
+            tests:
+              - not_null
+          - name: channel
+            tests:
+              - not_null
+          - name: message_text
+            tests:
+              - accepted_values:
+                  values: ["", null] # Allow empty but not null
+                  quote: false
+          - name: image_path
+            tests:
+              - relationships:
+                  to: ref('stg_telegram_messages')
+                  field: image_path
+                  severity: warn
+
+models:
+  - name: stg_telegram_messages
+    description: "Cleaned staging model for Telegram messages"
+    columns:
+      - name: message_key
+        tests:
+          - not_null
+          - unique
+      - name: channel
+        tests:
+          - not_null
+      - name: message_date
+        tests:
+          - not_null
+      - name: message_text
+        tests:
+          - not_null
